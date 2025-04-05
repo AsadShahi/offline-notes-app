@@ -1,7 +1,11 @@
+import Layout from '@/components/Layout'
+import NotesDashboard from '@/components/NotesDashboard'
 import React from 'react'
 
 export default function page() {
-  return (
-    <div>notes page</div>
-  )
+    return (
+        <Layout>
+            <NotesDashboard />
+        </Layout>
+    )
 }
