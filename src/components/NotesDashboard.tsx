@@ -139,7 +139,7 @@ const {theme}=useThemeStore()
                     </button>
                   </div>
                   <div 
-                    className="mt-2 text-sm text-gray-600 dark:text-gray-400 line-clamp-2 h-10 overflow-hidden"
+                    className={`${theme=='dark'?'bg-gray-600 text-white':''} mt-2 text-sm text-gray-600 dark:text-gray-400 line-clamp-2 h-10 overflow-hidden`}
                     dangerouslySetInnerHTML={{ __html: note.content || 'No content' }}
                   />
                 </div>
