@@ -32,30 +32,12 @@ const applyThemeToDOM = (theme: Theme) => {
   } catch (e) {
 
     console.error('Error applying theme to DOM:', e)
-    
+
   }
   
 }
 
-// Initialize theme based on localStorage or system preference
-const initializeTheme = (): Theme => {
-  try {
-    // Check for stored theme
-    const storedData = localStorage.getItem('theme-storage')
-    if (storedData) {
-      const parsed = JSON.parse(storedData)
-      if (parsed?.state?.theme) {
-        return parsed.state.theme as Theme
-      }
-    }
-    
-    // Default to system if no stored preference
-    return 'system'
-  } catch (e) {
-    console.error('Error initializing theme:', e)
-    return 'light' // Default to light mode as fallback
-  }
-}
+
 
 export const useThemeStore = create<ThemeState>()(
   persist(
@@ -71,9 +53,7 @@ export const useThemeStore = create<ThemeState>()(
           
           if (state.theme === 'light') {
             nextTheme = 'dark'
-          } else if (state.theme === 'dark') {
-            nextTheme = 'system'
-          } else {
+          }  else {
             nextTheme = 'light'
           }
           
@@ -103,7 +83,7 @@ export const useThemeStore = create<ThemeState>()(
   )
 )
 
-// Add event listener for system theme changes if running in browser
+// Add event listener when the user changes the system theme it will change the theme to the system theme Athoumitacally
 if (typeof window !== 'undefined') {
   window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
     const currentTheme = useThemeStore.getState().theme
