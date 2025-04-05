@@ -14,6 +14,7 @@ interface ThemeState {
 // Helper function to apply theme to the DOM
 const applyThemeToDOM = (theme: Theme) => {
   try {
+
     // Remove existing theme classes
     document.documentElement.classList.remove('light', 'dark')
     
@@ -29,8 +30,11 @@ const applyThemeToDOM = (theme: Theme) => {
     // For debugging
     console.log(`Applied theme: ${effectiveTheme} (selected: ${theme})`)
   } catch (e) {
+
     console.error('Error applying theme to DOM:', e)
+    
   }
+  
 }
 
 // Initialize theme based on localStorage or system preference
@@ -56,10 +60,13 @@ const initializeTheme = (): Theme => {
 export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
+
       theme: 'light' as Theme, // Default value, will be overridden by persist
       
       toggleTheme: () => {
+
         set((state) => {
+
           let nextTheme: Theme
           
           if (state.theme === 'light') {
@@ -71,7 +78,9 @@ export const useThemeStore = create<ThemeState>()(
           }
           
           applyThemeToDOM(nextTheme)
+
           return { theme: nextTheme }
+
         })
       },
       
