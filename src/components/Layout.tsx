@@ -27,12 +27,10 @@ export default function Layout({ children }: LayoutProps) {
   }
 
   return (
-    <div className={`flex h-screen ${isDark ? 'bg-gray-800 border-gray-700' : 'bg-white border-gray-200'    } text-gray-900 dark:text-gray-100`}>
-    
-  
+    <div className={`flex h-screen ${isDark ? 'bg-gray-800 border-gray-700 text-white' : 'bg-white border-gray-200 '    } text-gray-900 dark:text-gray-100`}>
     
       {/* Sidebar */}
-      <div className="hidden md:flex w-64 flex-col border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800">
+      <div className={`hidden md:flex ${isDark ? 'bg-gray-800   border-gray-700 text-white' : 'bg-white border-gray-200 '} w-64 flex-col border-r border-gray-200 dark:border-gray-700 bg-gray-50 dark:bg-gray-800`}>
         <div className="flex items-center h-16 px-6 border-b border-gray-200 dark:border-gray-700">
           <h1 className="text-xl font-bold">Notes App</h1>
         </div>
@@ -42,7 +40,7 @@ export default function Layout({ children }: LayoutProps) {
             className={`flex items-center px-4 py-3 rounded-lg ${
               isActive('/notes') 
                 ? 'bg-primary-100 dark:bg-primary-900 text-primary-900 dark:text-primary-100' 
-                : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+                : `{   ${isDark?'hover:bg-gray-700':'hover:bg-gray-100' }`}
             }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
@@ -54,8 +52,8 @@ export default function Layout({ children }: LayoutProps) {
             href="/favorites" 
             className={`flex items-center px-4 py-3 rounded-lg ${
               isActive('/favorites') 
-                ? 'bg-primary-100 dark:bg-primary-900 text-primary-900 dark:text-primary-100' 
-                : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+              ? 'bg-primary-100 dark:bg-primary-900 text-primary-900 dark:text-primary-100' 
+              : `{   ${isDark?'hover:bg-gray-700':'hover:bg-gray-100' }`}
             }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
@@ -68,7 +66,7 @@ export default function Layout({ children }: LayoutProps) {
             className={`flex items-center px-4 py-3 rounded-lg ${
               isActive('/settings') 
                 ? 'bg-primary-100 dark:bg-primary-900 text-primary-900 dark:text-primary-100' 
-                : 'hover:bg-gray-100 dark:hover:bg-gray-700'
+                : `{   ${isDark?'hover:bg-gray-700':'hover:bg-gray-100' }`}
             }`}
           >
             <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-3" viewBox="0 0 20 20" fill="currentColor">
@@ -96,7 +94,7 @@ export default function Layout({ children }: LayoutProps) {
       </div>
 
       {/* Mobile header */}
-      <div className="flex flex-col flex-1">
+      <div className={`theme==dark?bg-gray-800:'' flex flex-col flex-1 `}>
         <div className="md:hidden flex items-center justify-between h-16 px-4 border-b border-gray-200 dark:border-gray-700">
           <h1 className="text-xl font-bold">Notes App</h1>
           <div className="flex items-center space-x-2">
