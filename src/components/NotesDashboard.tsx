@@ -3,7 +3,7 @@
 import { useState, useEffect } from 'react'
 import { useNotesStore } from '@/store/notesStore'
 import Link from 'next/link'
-import { formatDistanceToNow } from 'date-fns'
+// import { formatDistanceToNow } from 'date-fns'
 
 export default function NotesDashboard() {
   const { notes, addNote, toggleFavorite, searchNotes } = useNotesStore()
@@ -143,9 +143,9 @@ export default function NotesDashboard() {
                   />
                 </div>
                 <div className="px-4 py-2 bg-gray-50 dark:bg-gray-700 text-xs text-gray-500 dark:text-gray-400 flex justify-between items-center">
-                  <span>
+                  {/* <span>
                     {formatDistanceToNow(new Date(note.updatedAt), { addSuffix: true })}
-                  </span>
+                  </span> */}
                   {note.isFavorite && (
                     <span className="flex items-center text-yellow-500">
                       <svg xmlns="http://www.w3.org/2000/svg" className="h-3 w-3 mr-1" viewBox="0 0 20 20" fill="currentColor">
