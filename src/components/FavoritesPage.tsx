@@ -1,13 +1,14 @@
 "use client"
 
 import { useNotesStore } from '@/store/notesStore'
+import { useThemeStore } from '@/store/themeStore'
 import Link from 'next/link'
 // import { formatDistanceToNow } from 'date-fns'
 
 export default function FavoritesPage() {
   const { notes, toggleFavorite } = useNotesStore()
   const favoriteNotes = notes.filter((note) => note.isFavorite)
-  
+  const { theme } = useThemeStore()
   // Sort by most recently updated
   const sortedFavorites = [...favoriteNotes].sort((a, b) => 
     new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
@@ -37,7 +38,7 @@ export default function FavoritesPage() {
           </Link>
         </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className={`${theme=='dark'?'text-gray-800':''} grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 `}>
           {sortedFavorites.map((note) => (
             <div
               key={note.id}
