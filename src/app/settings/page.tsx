@@ -1,5 +1,5 @@
-import Layout from '@/components/Layout'
-import SettingsPage from '@/components/SettingsPage'
+import Layout from '@/components/templates/Layout'
+import SettingsPage from '@/components/templates/SettingsPage'
 import React from 'react'
 
 export default function page() {
