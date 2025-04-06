@@ -13,6 +13,7 @@ export interface Note {
 interface NotesState {
   notes: Note[]
   addNote: (note: Omit<Note, 'id' | 'createdAt' | 'updatedAt'>) => void
+  
   updateNote: (id: string, note: Partial<Note>) => void
   deleteNote: (id: string) => void
   toggleFavorite: (id: string) => void
@@ -24,6 +25,7 @@ export const useNotesStore = create<NotesState>()(
   persist(
     (set, get) => ({
       notes: [],
+
       addNote: (note) => {
         const newNote: Note = {
           ...note,
@@ -69,7 +71,8 @@ export const useNotesStore = create<NotesState>()(
       },
     }),
     {
-      name: 'notes-storage',
+      // name in localo storage
+      name: 'notes-storage', 
     }
   )
 ) 

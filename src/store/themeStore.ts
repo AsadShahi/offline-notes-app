@@ -43,7 +43,7 @@ export const useThemeStore = create<ThemeState>()(
   persist(
     (set) => ({
 
-      theme: 'light' as Theme, // Default value, will be overridden by persist
+      theme: 'light' as Theme, // Default value
       
       toggleTheme: () => {
 

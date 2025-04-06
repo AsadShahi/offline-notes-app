@@ -34,7 +34,7 @@ export default function NotesDashboard() {
       isFavorite: false,
     })
   }
-
+// sort node base the last update date
   const sortedNotes = [...searchResults].sort((a, b) => 
     new Date(b.updatedAt).getTime() - new Date(a.updatedAt).getTime()
   )
