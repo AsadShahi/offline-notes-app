@@ -5,6 +5,7 @@
 import { useState } from 'react';
 import { useThemeStore } from '@/store/themeStore';
 import { useNotesStore } from '@/store/notesStore';
+import Link from 'next/link';
 
 export default function SettingsPage() {
     const { theme, toggleTheme } = useThemeStore();
@@ -238,6 +239,10 @@ export default function SettingsPage() {
                             <p className="text-sm text-gray-600 dark:text-gray-400">
                                 A local-first note-taking application built with React, Next.js, and TipTap.
                                 All your notes are stored locally in your browser for privacy and offline access.
+                                <br />
+                                <strong>This app is designed and Developed By AsadShahi</strong>
+                                <br />
+                                <Link  href={'https://github.com/AsadShahi'}>Github Link</Link>
                             </p>
                             <div className="flex flex-col sm:flex-row gap-2 text-sm pt-2">
                                 <span className="text-gray-500 dark:text-gray-400">
