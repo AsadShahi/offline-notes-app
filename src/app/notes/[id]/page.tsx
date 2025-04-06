@@ -1,7 +1,21 @@
-import React from 'react'
+/* Offline Notes App - Full Implementation with Next.js + TypeScript + Tailwind + Zustand using Tiptap */
 
-export default function page() {
+// src/components/editor.tsx
+"use client";
+import { EditorContent, useEditor } from "@tiptap/react";
+import StarterKit from "@tiptap/starter-kit";
+import { useEffect } from "react";
+import NoteEditor from '@/components/NoteEditor'
+import Layout from '@/components/Layout'
+
+export default function NotePage({ params }: { params: { id: string } }) {
   return (
-    <div>page</div>
+    <Layout>
+      <NoteEditor noteId={params.id} />
+    </Layout>
   )
 }
+
+
+
+
