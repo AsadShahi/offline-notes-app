@@ -82,13 +82,12 @@ export const useThemeStore = create<ThemeState>()(
     }
   )
 )
-
-// Add event listener when the user changes the system theme it will change the theme to the system theme Athoumitacally
+// Add event listener when the user changes the system theme; it will change the theme to the system theme automatically
 if (typeof window !== 'undefined') {
-  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+  window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => {
     const currentTheme = useThemeStore.getState().theme
     if (currentTheme === 'system') {
       applyThemeToDOM('system')
     }
   })
-} 
+}
