@@ -1,6 +1,6 @@
 
-import NoteEditor from '@/components/NoteEditor'
-import Layout from '@/components/Layout'
+import NoteEditor from '@/components/templates/NoteEditor'
+import Layout from '@/components/templates/Layout'
 
 interface PageProps {
   params: {

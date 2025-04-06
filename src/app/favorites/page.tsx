@@ -1,5 +1,5 @@
-import FavoritesPage from '@/components/FavoritesPage'
-import Layout from '@/components/Layout'
+import FavoritesPage from '@/components/templates/FavoritesPage'
+import Layout from '@/components/templates/Layout'
 import React from 'react'
 
 export default function page() {

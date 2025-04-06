@@ -1,6 +1,5 @@
-import NotesDashboard from '@/components/NotesDashboard'
-import Layout from '@/components/Layout'
-import { useThemeStore } from './themeStore'
+import NotesDashboard from '@/components/templates/NotesDashboard'
+import Layout from '@/components/templates/Layout'
 
 export default function NotesPage() {
   return (
